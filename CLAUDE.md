@@ -87,6 +87,19 @@ Each of these cost real debugging time. Do not undo them.
 - **Monitors are `@unchecked Sendable`** because they are confined to
   `SystemMetrics.queue`. That conformance is only sound while that stays true.
 
+## Git
+
+Personal repo: `git@github.com:himxnshudxhiyx/macpulse.git` (SSH, key
+`~/.ssh/id_ed25519`, `IdentitiesOnly yes` so the work GitLab key is never
+offered). Branch `main`.
+
+Commits here must use the **personal** identity, `himanshu.44909@gmail.com` —
+the global git config on this machine is the work address. An
+`includeIf "gitdir:~/Projects/MacPulse/"` rule in `~/.gitconfig` handles it
+automatically; confirm with `git config user.email` before committing.
+
+Do **not** add a `Co-Authored-By: Claude ...` trailer to commit messages.
+
 ## Verifying changes
 
 The app usually sits behind a terminal, so capture it by window id rather than
