@@ -105,6 +105,10 @@ right identity with no setup. Anything outside `~/Projects/` stays work.
 
 Do **not** add a `Co-Authored-By: Claude ...` trailer to commit messages.
 
+**Never `git push` without asking first.** Committing locally is fine and needs
+no permission — publishing is his call. Leave finished commits sitting unpushed
+and say so.
+
 ## Verifying changes
 
 The app usually sits behind a terminal, so capture it by window id rather than
