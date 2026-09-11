@@ -105,9 +105,9 @@ right identity with no setup. Anything outside `~/Projects/` stays work.
 
 Do **not** add a `Co-Authored-By: Claude ...` trailer to commit messages.
 
-**Never `git push` without asking first.** Committing locally is fine and needs
-no permission — publishing is his call. Leave finished commits sitting unpushed
-and say so.
+**Never run `git commit` or `git push` without asking first** — amends and
+force-pushes included. Edit files freely and leave the working tree dirty; say
+what is ready and offer. Writing history is his call, not yours.
 
 ## Verifying changes
 
