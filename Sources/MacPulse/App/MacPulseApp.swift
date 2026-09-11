@@ -72,12 +72,14 @@ struct MacPulseApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     @StateObject private var metrics = SystemMetrics()
     @StateObject private var loginItem = LoginItem()
+    @StateObject private var appearance = AppearanceSetting()
 
     var body: some Scene {
         WindowGroup(id: "main") {
             ContentView()
                 .environmentObject(metrics)
                 .environmentObject(loginItem)
+                .environmentObject(appearance)
                 .frame(minWidth: 900, minHeight: 620)
         }
         .defaultSize(width: 1120, height: 780)
@@ -93,6 +95,7 @@ struct MacPulseApp: App {
             MenuBarPanel()
                 .environmentObject(metrics)
                 .environmentObject(loginItem)
+                .environmentObject(appearance)
         } label: {
             MenuBarReadout(cpu: metrics.cpu.usage,
                            memoryUsed: metrics.memory.used,

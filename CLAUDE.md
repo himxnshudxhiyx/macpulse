@@ -86,6 +86,10 @@ Each of these cost real debugging time. Do not undo them.
   filters them during both scan and clean.
 - **Monitors are `@unchecked Sendable`** because they are confined to
   `SystemMetrics.queue`. That conformance is only sound while that stays true.
+- **Appearance is set on `NSApp`, not with `preferredColorScheme`.** The latter
+  only reaches the window; the menu bar popover is a separate panel and would
+  keep the system appearance. Verified by pinning the app to light while macOS
+  is dark and checking the popover follows.
 
 ## Git
 
@@ -135,4 +139,6 @@ Nine panels: Overview, CPU, Memory, Storage, Network, Processes, Open Apps,
 Cleanup, System. Menu bar shows a two-line CPU/RAM readout with SoC temperature
 beside it, plus a popover with headline stats, top apps and the login switch.
 Starts at login via `SMAppService` (registered); a login launch opens menu-bar
-only. Closing the window leaves the app running without a Dock icon.
+only. Closing the window leaves the app running without a Dock icon. Appearance
+is System / Light / Dark, chosen in the System panel and stored under the
+`appearanceMode` default.

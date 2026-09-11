@@ -3,12 +3,16 @@ import SwiftUI
 struct SystemInfoView: View {
     @EnvironmentObject private var metrics: SystemMetrics
     @EnvironmentObject private var loginItem: LoginItem
+    @EnvironmentObject private var appearance: AppearanceSetting
 
     private var info: SystemInfo { metrics.systemInfo }
 
     var body: some View {
         PageScaffold(title: "System", subtitle: info.marketingName) {
-            startupCard
+            HStack(alignment: .top, spacing: 14) {
+                startupCard
+                appearanceCard
+            }
 
             HStack(alignment: .top, spacing: 14) {
                 Card(title: "Hardware", systemImage: "desktopcomputer") {
@@ -96,6 +100,24 @@ struct SystemInfoView: View {
                     InfoRow(label: "Sampled", value: metrics.lastUpdate.formatted(date: .omitted, time: .standard))
                 }
             }
+        }
+    }
+
+    private var appearanceCard: some View {
+        Card(title: "Appearance", systemImage: "circle.lefthalf.filled") {
+            Picker("", selection: $appearance.mode) {
+                ForEach(AppearanceMode.allCases) { mode in
+                    Label(mode.label, systemImage: mode.symbol).tag(mode)
+                }
+            }
+            .labelsHidden()
+            .pickerStyle(.segmented)
+            Text(appearance.mode == .system
+                 ? "Following the system setting, so MacPulse changes with macOS."
+                 : "Pinned to \(appearance.mode.label.lowercased()) regardless of the system setting.")
+                .font(.system(size: 11))
+                .foregroundStyle(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
         }
     }
 
