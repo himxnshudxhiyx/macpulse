@@ -94,9 +94,10 @@ Personal repo: `git@github.com:himxnshudxhiyx/macpulse.git` (SSH, key
 offered). Branch `main`.
 
 Commits here must use the **personal** identity, `himanshu.44909@gmail.com` —
-the global git config on this machine is the work address. An
-`includeIf "gitdir:~/Projects/MacPulse/"` rule in `~/.gitconfig` handles it
-automatically; confirm with `git config user.email` before committing.
+the global git config on this machine is the work address. Everything under
+`~/Projects/` is personal: an `includeIf "gitdir:~/Projects/"` rule in
+`~/.gitconfig` points at `~/.gitconfig-personal`, so new repos there get the
+right identity with no setup. Anything outside `~/Projects/` stays work.
 
 Do **not** add a `Co-Authored-By: Claude ...` trailer to commit messages.
 
