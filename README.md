@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/icon.png" width="128" height="128" alt="MacPulse app icon">
+</p>
+
 # MacPulse
 
 A native macOS performance monitor — CPU, memory, storage, network, processes,
